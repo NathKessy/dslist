@@ -16,23 +16,30 @@ public class Game {
     @Column(name = "game_year") // Aqui estamos costumizando o nome da tabela year no banco
     private Integer year;
     private String genre; // genero
-    private String plataform;
+    private String platforms;
+    private Double score;
     private String imgUrl;
+
+    @Column(columnDefinition = "TEXT")
     private String shortDescription; // Descrição curta do jogo
+
+    @Column(columnDefinition = "TEXT")
     private String longDescription; // Descrição longa do jogo
+
 
     //Construtor sem argumentos
     public Game() {
     }
 
     //Construtor com argumentos
-    public Game(long id, String title, Integer year, String genre, String plataform, String imgUrl,
-                String shortDescription, String longDescription) {
+    public Game(long id, String title, Integer year, String genre, String platforms, Double score,
+                String imgUrl, String shortDescription, String longDescription) {
         this.id = id;
         this.title = title;
         this.year = year;
         this.genre = genre;
-        this.plataform = plataform;
+        this.platforms = platforms;
+        this.score = score;
         this.imgUrl = imgUrl;
         this.shortDescription = shortDescription;
         this.longDescription = longDescription;
@@ -71,12 +78,20 @@ public class Game {
         this.genre = genre;
     }
 
-    public String getPlataform() {
-        return plataform;
+    public String getPlatforms() {
+        return platforms;
     }
 
-    public void setPlataform(String plataform) {
-        this.plataform = plataform;
+    public void setPlatforms(String plataforms) {
+        this.platforms = plataforms;
+    }
+
+    public Double getScore() {
+        return score;
+    }
+
+    public void setScore(Double score) {
+        this.score = score;
     }
 
     public String getImgUrl() {
@@ -117,3 +132,4 @@ public class Game {
         return Objects.hashCode(id);
     }
 }
+
